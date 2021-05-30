@@ -17,7 +17,7 @@ export const pageContents = {
 
 export const listData = {
   title: 'Things to do <sup>soon!</sup>',
-  description: 'Interesting things I want to check out!',
+  description: 'Interesting things!',
   image: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
   columns: [
     {
@@ -27,26 +27,26 @@ export const listData = {
       cards: [
         {
           key: 0,
-          title: 'This Is Going to Hurt',
+          title: 'Metro 2033',
         },
         {
           key: 1,
-          title: 'Interpreter of Maladies',
+          title: 'Borkmanns Point',
         },
       ],
     },
     {
       key: 1,
       title: 'Movies',
-      icon: 'film',
+      icon: 'films',
       cards: [
         {
           key: 0,
-          title: 'Harry Potter',
+          title: 'Miami Vice',
         },
         {
           key: 1,
-          title: 'Star Wars',
+          title: 'The Butterfly Effect',
         },
       ],
     },
@@ -57,11 +57,11 @@ export const listData = {
       cards: [
         {
           key: 0,
-          title: 'The Witcher',
+          title: 'Arma 3',
         },
         {
           key: 1,
-          title: 'Skyrim',
+          title: 'Squad',
         },
       ],
     },
