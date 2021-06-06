@@ -7,9 +7,6 @@ import Card from '../Card/Card.js';
 import Icon from './Icon';
 
 class Column extends React.Component {
-  state = {
-    cards: this.state || [],
-  }
   
   static propTypes = {
     addCard: PropTypes.func,
@@ -17,7 +14,6 @@ class Column extends React.Component {
     icon: PropTypes.node,
     title: PropTypes.string,
   }
-
   static defaultProps = {
     icon: settings.defaultColumnIcon,
   }
@@ -32,7 +28,7 @@ class Column extends React.Component {
           </span>
         </h3>
         <div className={styles.cards}>
-          {cards.map(cardsData => (
+          {cards && cards.map(cardsData => (
             <Card key={cardsData.id} {...cardsData} />
           ))}
         </div>
