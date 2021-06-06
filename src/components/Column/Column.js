@@ -8,52 +8,40 @@ import Icon from './Icon';
 
 class Column extends React.Component {
   state = {
-    cards: this.props.cards || [],
+    cards: this.state || [],
   }
-
+  
   static propTypes = {
-    title: PropTypes.string.isRequired,
-    cards: PropTypes.array.isRequired,
-    icon: PropTypes.node.isRequired,
+    addCard: PropTypes.func,
+    cards: PropTypes.array,
+    icon: PropTypes.node,
+    title: PropTypes.string,
   }
 
   static defaultProps = {
     icon: settings.defaultColumnIcon,
   }
 
-  addCard(title) {
-    this.setState(state => (
-      {
-        cards: [
-          ...state.cards,
-          {
-            key: state.cards.length ? state.cards[state.cards.length-1].key+1 : 0,
-            title,
-          }
-        ]
-      }
-    ));
-  }
-
   render() {
+    const {title, icon, cards, addCard} = this.props;
     return (
-        <section className={styles.component}>
-          <h3 className={styles.title}>{this.props.title}</h3>
-          <h3 className={styles.title}>{this.props.title}
-            <span className={styles.icon}>
-              <Icon name={this.props.icon} />
-            </span>
-          </h3>
-          <div className={styles.cards}>
-            {
-              this.props.cards.map(card => <Card key={card.key} title={card.title} ></Card> )
-            }
-          </div>
-          <div className={styles.creator}>
-            <Creator text={settings.cardCreatorText} action={title => this.addCard(title)}/>
-          </div>
-        </section>
-    )
+      <section className={styles.component}>
+        <h3 className={styles.title}>{title}
+          <span className={styles.icon}>
+            <Icon name={icon} />
+          </span>
+        </h3>
+        <div className={styles.cards}>
+        {cards.map(cardsData => (
+            <Card key={cardsData.id} {...cardsData} />
+          ))}
+         
+        </div>
+        <div className={styles.creator}>
+          <Creator text={settings.cardCreatorText} action={addCard}/>
+        </div>
+      </section>
+    );
   }
 }
-export default Column; 
+export default Column;
