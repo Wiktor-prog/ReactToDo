@@ -5,12 +5,12 @@ import PropTypes from 'prop-types';
 const Container = (props) => (
 
   <div className={styles.component}>
-    {props.childern} 
+    {props.children} 
   </div>   
 );
 
 Container.propTypes = {
-  childern: PropTypes.node,
+  children: PropTypes.node,
 };
 
 export default Container;
